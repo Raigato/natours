@@ -7,10 +7,10 @@ const mongoSantize = require("express-mongo-sanitize");
 const xssClean = require("xss-clean");
 const hpp = require("hpp");
 const cookieParser = require("cookie-parser");
+const compression = require("compression");
 
 const AppError = require("./utils/appError");
 const globalErrorHandler = require("./controllers/errorController");
-
 const viewRouter = require("./routes/viewRoutes");
 const tourRouter = require("./routes/tourRoutes");
 const userRouter = require("./routes/userRoutes");
@@ -60,6 +60,8 @@ app.use(
     ],
   })
 );
+
+app.use(compression());
 
 // app.use((req, res, next) => {
 //   console.log("Hello from the middleware 👋");
