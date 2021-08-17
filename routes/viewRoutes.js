@@ -10,9 +10,12 @@ const {
   getAccount,
   updateUserData,
   getOwnTours,
+  alerts,
 } = require("../controllers/viewsController");
 
 const router = express.Router();
+
+router.use(alerts);
 
 router.get(
   "/",
